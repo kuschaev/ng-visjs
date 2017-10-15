@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "ng-visjs",
+  "description": "A test AngularJS app featuring vis.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kuschaev/ng-visjs.git",
   "license": "MIT",
   "private": true,
   "dependencies": {
