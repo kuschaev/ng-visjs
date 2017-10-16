@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "ng-visjs",
+  "description": "A test AngularJS app featuring vis.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kuschaev/ng-visjs.git",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,6 +10,14 @@
     "angular-route": "~1.5.0",
     "angular-loader": "~1.5.0",
     "angular-mocks": "~1.5.0",
-    "html5-boilerplate": "^5.3.0"
+    "html5-boilerplate": "^5.3.0",
+    "angular-material": "^1.1.5",
+    "angular-messages": "^1.6.6",
+    "angular-sanitize": "^1.6.6",
+    "angular-visjs": "^4.16.0",
+    "vis": "^4.21.0"
+  },
+  "resolutions": {
+    "angular": "1.5.11"
   }
 }
