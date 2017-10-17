@@ -35,7 +35,6 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             var value = 1;
             var width = WIDTH_SCALE * 2;
             var color = GRAY;
-            var label = null;
 
             if (i === 103) {
                 value = 5;
@@ -43,11 +42,10 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             }
             if (i === 102) {
                 color = RED;
-                label = 'OOPS!((9';
             }
 
             nodes.push({id: i, label: '192.168.0.' + i, group: 'desktop', value: value});
-            edges.push({from: 2, to: i, length: LENGTH_SUB, color: color, fontColor: color, width: width, label: label});
+            edges.push({from: 2, to: i, length: LENGTH_SUB, color: color, fontColor: color, width: width});
         }
         nodes.push({id: 201, label: '192.168.0.201', group: 'desktop', value: 1});
         edges.push({from: 2, to: 201, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE});
@@ -55,10 +53,10 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
         // group around 3
         nodes.push({id: 202, label: '192.168.0.202', group: 'desktop', value: 4});
         edges.push({from: 3, to: 202, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE * 2});
-        for (var i = 230; i <= 231; i++ ) {
-            nodes.push({id: i, label: '192.168.0.' + i, group: 'mobile', value: 2});
-            edges.push({from: 3, to: i, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE});
-        }
+        //for (var i = 230; i <= 231; i++ ) {
+            nodes.push({id: 230, label: '192.168.0.' + 230, group: 'mobile', value: 2});
+            edges.push({from: 3, to: 230, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE});
+        //}
 
         // group around 1
         nodes.push({id: 10, label: '192.168.0.10', group: 'server', value: 10});
@@ -73,11 +71,9 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
 
 
         // legend
-        /*
-        var mynetwork = document.getElementById('mynetwork');
-        */
-        var x = -400;//- mynetwork.clientWidth / 2 + 50;
-        var y = -200;//- mynetwork.clientHeight / 2 + 50;
+
+        var x = -400;
+        var y = -200;
 
         var step = 70;
         nodes.push({id: 1000, x: x, y: y,
@@ -175,7 +171,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
                 }*/
             }
         };
-
+        // for magic trick button
         $scope.hideSelection = function() {
             alert("I will make those edges disappear!!");
             var selectedNodeId = $scope.selectedNodes;
@@ -198,7 +194,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
                 });
             }
         };
-
+        // reverses the magic trick
         $scope.showHiddenNodesAndEdges = function() {
             if($scope.hiddenNodes.length === 0) {
                 alert("There are no disappeared nodes yet");

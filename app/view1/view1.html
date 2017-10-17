@@ -1,14 +1,15 @@
 <p>This is a vis.js network visualization.
     Selecting a node/edge and then SHOWING A MAGIC TRICK makes it disappear.
-    The second button reverts it.
+    The second button reverts this.
     Doesn't work on legend, it;s static.
+    Doubleclicking on nodes updates the input.
 </p>
 
 <div ng-controller="View1Ctrl">
 
     <md-button ng-click="hideSelection()">SHOW A MAGIC TRICK</md-button>
     <md-button ng-click="showHiddenNodesAndEdges()">Better not</md-button>
-    <!--<h2>{{activeNode}}</h2>-->
+    <!--<h4>{{activeNode}}</h4>-->
     <md-input-container class="md-block">
         <label>Active element</label>
         <input ng-model="activeNode">

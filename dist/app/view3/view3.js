@@ -12,7 +12,7 @@ angular.module('myApp.view3', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             alert(clicked.nodes[0] + "was clicked!");
         }
     };
-    //$scope.visAvailable = false;
+
     /*
     $scope.onClick = function(props) {
         //debugger;
@@ -28,6 +28,7 @@ angular.module('myApp.view3', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             keyboard: true
         },
         layout: {
+            // makes loading much faster
             improvedLayout: false
         }
     };
