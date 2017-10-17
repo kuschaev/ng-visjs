@@ -101,15 +101,15 @@ angular.module('myApp.view3', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
         /*
         var mynetwork = document.getElementById('mynetwork');
         */
-        var x = 0;//- mynetwork.clientWidth / 2 + 50;
-        var y = 0;//- mynetwork.clientHeight / 2 + 50;
+        // var x = 0;//- mynetwork.clientWidth / 2 + 50;
+        // var y = 0;//- mynetwork.clientHeight / 2 + 50;
 
-        var step = 70;
-        nodes.push({id: 1000, x: x, y: y, label: 'Internet', group: 'internet', value: 1, fixed: true, physics:false});
-        nodes.push({id: 1001, x: x, y: y + step, label: 'Switch', group: 'switch', value: 1, fixed: true,  physics:false});
-        nodes.push({id: 1002, x: x, y: y + 2 * step, label: 'Server', group: 'server', value: 1, fixed: true,  physics:false});
-        nodes.push({id: 1003, x: x, y: y + 3 * step, label: 'Computer', group: 'desktop', value: 1, fixed: true,  physics:false});
-        nodes.push({id: 1004, x: x, y: y + 4 * step, label: 'Smartphone', group: 'mobile', value: 1, fixed: true,  physics:false});
+        // var step = 70;
+        // nodes.push({id: 1000, /*x: x, y: y,*/ label: 'Internet', group: 'internet', value: 1, fixed: true, physics:false});
+        // nodes.push({id: 1001, /*x: x, y: y + step,*/ label: 'Switch', group: 'switch', value: 1, fixed: true,  physics:false});
+        // nodes.push({id: 1002, /*x: x, y: y + 2 * step,*/ label: 'Server', group: 'server', value: 1, fixed: true,  physics:false});
+        // nodes.push({id: 1003, /*x: x, y: y + 3 * step,*/ label: 'Computer', group: 'desktop', value: 1, fixed: true,  physics:false});
+        // nodes.push({id: 1004, /*x: x, y: y + 4 * step,*/ label: 'Smartphone', group: 'mobile', value: 1, fixed: true,  physics:false});
 
         $scope.data = {
             nodes: nodes,
