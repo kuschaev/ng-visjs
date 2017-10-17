@@ -1,7 +1,10 @@
-<p>This is vis.js network visualization of some random data</p>
+<p>This is a vis.js network visualization</p>
 
 <div ng-controller="View1Ctrl">
-    <vis-network data="data" options="options" events="events" height="100%"></vis-network>
-</div>
 
-<md-button>PRESS ME</md-button>
+    <md-button ng-click="hideSelection()">SHOW A MAGIC TRICK</md-button>
+    <md-button ng-click="showHiddenNodesAndEdges()">Better not</md-button>
+
+    <vis-network data="data" options="options" events="events" height="100%"></vis-network>
+
+</div>
