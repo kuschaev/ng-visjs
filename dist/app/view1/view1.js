@@ -16,42 +16,14 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
         LENGTH_SUB = 50,
         WIDTH_SCALE = 2,
         RED = '#C5000B',
-        GRAY = '#666666',
-        BLACK = '#2B1B17';
+        GRAY = '#666666';
 
+    // initial group of nodes (switches)
     nodes.push({ id: 1, label: '192.168.0.1', group: 'switch', value: 10 });
     nodes.push({ id: 2, label: '192.168.0.2', group: 'switch', value: 8 });
     nodes.push({ id: 3, label: '192.168.0.3', group: 'switch', value: 6 });
     edges.push({ from: 1, to: 2, length: LENGTH_MAIN, width: WIDTH_SCALE * 6, label: '0.71 mbps' });
     edges.push({ from: 1, to: 3, length: LENGTH_MAIN, width: WIDTH_SCALE * 4, label: '0.55 mbps' });
-
-    // group around 2
-    for (var i = 100; i <= 104; i++) {
-        var value = 1;
-        var width = WIDTH_SCALE * 2;
-        var color = GRAY;
-
-        if (i === 103) {
-            value = 5;
-            width = 3;
-        }
-        if (i === 102) {
-            color = RED;
-        }
-
-        nodes.push({ id: i, label: '192.168.0.' + i, group: 'desktop', value: value });
-        edges.push({ from: 2, to: i, length: LENGTH_SUB, color: color, fontColor: color, width: width });
-    }
-    nodes.push({ id: 201, label: '192.168.0.201', group: 'desktop', value: 1 });
-    edges.push({ from: 2, to: 201, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE });
-
-    // group around 3
-    nodes.push({ id: 202, label: '192.168.0.202', group: 'desktop', value: 4 });
-    edges.push({ from: 3, to: 202, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE * 2 });
-    //for (var i = 230; i <= 231; i++ ) {
-    nodes.push({ id: 230, label: '192.168.0.' + 230, group: 'mobile', value: 2 });
-    edges.push({ from: 3, to: 230, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE });
-    //}
 
     // group around 1
     nodes.push({ id: 10, label: '192.168.0.10', group: 'server', value: 10 });
@@ -60,9 +32,28 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
     edges.push({ from: 1, to: 11, length: LENGTH_SERVER, color: GRAY, width: WIDTH_SCALE * 3, label: '0.68 mbps' });
     nodes.push({ id: 12, label: '192.168.0.12', group: 'server', value: 3 });
     edges.push({ from: 1, to: 12, length: LENGTH_SERVER, color: GRAY, width: WIDTH_SCALE, label: '0.3 mbps' });
-
     nodes.push({ id: 204, label: 'Internet', group: 'internet', value: 10 });
     edges.push({ from: 1, to: 204, length: 200, width: WIDTH_SCALE * 3, label: '0.63 mbps' });
+
+    // group around 2
+    nodes.push({ id: 100, label: '192.168.0.100', group: 'desktop', value: 1 });
+    edges.push({ from: 2, to: 100, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE * 2 });
+    nodes.push({ id: 101, label: '192.168.0.101', group: 'desktop', value: 1 });
+    edges.push({ from: 2, to: 101, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE * 2 });
+    nodes.push({ id: 102, label: '192.168.0.102', group: 'desktop', value: 1 });
+    edges.push({ from: 2, to: 102, length: LENGTH_SUB, color: RED, fontColor: GRAY, width: WIDTH_SCALE * 2 });
+    nodes.push({ id: 103, label: '192.168.0.103', group: 'desktop', value: 5 });
+    edges.push({ from: 2, to: 103, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: 3 });
+    nodes.push({ id: 104, label: '192.168.0.104', group: 'desktop', value: 1 });
+    edges.push({ from: 2, to: 104, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE * 2 });
+    nodes.push({ id: 201, label: '192.168.0.201', group: 'desktop', value: 1 });
+    edges.push({ from: 2, to: 201, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE });
+
+    // group around 3
+    nodes.push({ id: 202, label: '192.168.0.202', group: 'desktop', value: 4 });
+    edges.push({ from: 3, to: 202, length: LENGTH_SUB, color: GRAY, width: WIDTH_SCALE * 2 });
+    nodes.push({ id: 230, label: '192.168.0.230', group: 'mobile', value: 2 });
+    edges.push({ from: 3, to: 230, length: LENGTH_SUB, color: GRAY, fontColor: GRAY, width: WIDTH_SCALE });
 
     // legend
 
