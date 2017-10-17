@@ -2,9 +2,21 @@
 
 <div ng-controller="View1Ctrl">
 
-    <md-button ng-click="hideSelection()">SHOW A MAGIC TRICK</md-button>
-    <md-button ng-click="showHiddenNodesAndEdges()">Better not</md-button>
+    <div layout="row">
+        <md-button ng-click="hideSelection()">SHOW A MAGIC TRICK</md-button>
+        <md-button ng-click="showHiddenNodesAndEdges()">Better not</md-button>
+        <!--<h2>{{activeNode}}</h2>-->
+        <md-input-container class="md-block">
+            <label>Active element</label>
+            <input ng-model="activeNode">
+        </md-input-container>
+    </div>
+    <!--<pre id="eventDC"></pre>-->
 
     <vis-network data="data" options="options" events="events" height="100%"></vis-network>
+
+
+
+
 
 </div>

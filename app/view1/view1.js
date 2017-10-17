@@ -13,40 +13,15 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
     function($scope, VisDataSet) {
 
         var nodes = [];
-        /*[{"id":"000ECU","label":"000ECU","size":10,"color":"#93D276","shape":"circle","shadow":true},
-        {"id":"caw182793_000ECU_not_installed_0","label":"caw182793","size":5,"color":"#7F8489","shape":"square","shadow":true},
-        {"id":"000EGG","label":"000EGG","size":20,"color":"#93D276","shape":"circle","shadow":true,"borderWidth":5,"level":1,"shadow.size":20},
-        {"id":"abhi-cloud-win2012-64_000EGG_in_active_0","label":"abhi-cloud-win2012-64","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"abhi-rh-64-cloud_000EGG_in_active_1","label":"abhi-rh-64-cloud","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"anand-win28r2_000EGG_in_active_2","label":"anand-win28r2","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"ajay-pc_000EGG_in_active_3","label":"ajay-pc","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"brk_000EGG_in_active_4","label":"brk","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"brk-win64_000EGG_in_active_5","label":"brk-win64","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"banu-wnd_000EGG_in_active_6","label":"banu-wnd","size":5,"color":"#FF2A00","shape":"square","shadow":true},
-        {"id":"cas161850_000EGG_in_active_7","label":"cas161850","size":5,"color":"#FF2A00","shape":"square","shadow":true}];
-        */
 
         var edges = [];
-        /*[{"from":"000EGG","to":"000ECU"},
-        {id: 2, "from":"000ECU","to":"caw182793_000ECU_not_installed_0"},
-        {"from":"000EGG","to":"abhi-cloud-win2012-64_000EGG_in_active_0"},
-        {"from":"000EGG","to":"abhi-rh-64-cloud_000EGG_in_active_1"},
-        {"from":"000EGG","to":"anand-win28r2_000EGG_in_active_2"},
-        {"from":"000EGG","to":"ajay-pc_000EGG_in_active_3"},
-        {"from":"000EGG","to":"brk_000EGG_in_active_4"},
-        {"from":"000EGG","to":"brk-win64_000EGG_in_active_5"},
-        {"from":"000EGG","to":"banu-wnd_000EGG_in_active_6"},
-        {"from":"000EGG","to":"cas161850_000EGG_in_active_7"}];*/
 
         var LENGTH_MAIN = 350,
             LENGTH_SERVER = 150,
             LENGTH_SUB = 50,
             WIDTH_SCALE = 2,
-            GREEN = 'green',
             RED = '#C5000B',
-            ORANGE = 'orange',
-            //GRAY = '#666666',
-            GRAY = 'gray',
+            GRAY = '#666666',
             BLACK = '#2B1B17';
 
         nodes.push({id: 1, label: '192.168.0.1', group: 'switch', value: 10});
@@ -116,20 +91,6 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
         nodes.push({id: 1004, x: x, y: y + 4 * step,
             label: 'Smartphone', group: 'mobile', value: 1, fixed: true,  physics:false});
 
-        $scope.selectedNode = [];
-        $scope.selectedEdges = [];
-        $scope.hiddenNodes = [];
-        $scope.hiddenEdges = [];
-
-        $scope.events = {
-            selectEdge: function(selected) {
-                $scope.selectedEdges = [];
-                $scope.selectedEdges = selected.edges;
-                $scope.selectedNode = [];
-                $scope.selectedNode.push(selected.nodes);
-            }
-        };
-
         $scope.data = {
             nodes: new vis.DataSet(nodes),
             edges: new vis.DataSet(edges)
@@ -143,7 +104,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
                 improvedLayout: false
             },
             groups: {
-                'switch': {
+                switch: {
                     shape: 'triangle',
                     color: '#FF9900' // orange
                 },
@@ -166,11 +127,86 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             }
         };
 
+        $scope.selectedNodes = [];
+        $scope.selectedEdges = [];
+
+        $scope.hiddenNodes = [];
+        $scope.hiddenEdges = [];
+
+        $scope.activeNode = "Avada Kedavra";
+
+        $scope.events = {
+            doubleClick: function(doubleClicked) {
+                doubleClicked.event = "[original event]";
+                document.getElementById('eventDC').innerHTML = '<h2>doubleClick event:</h2>' + JSON.stringify(doubleClicked, null, 4);
+                $scope.activeNode = doubleClicked.nodes.toString();
+            },
+
+            selectEdge: function(selected) {
+                $scope.selectedEdges = [];
+                $scope.selectedEdges = selected.edges;
+                $scope.selectedNodes = [];
+                $scope.selectedNodes.push(selected.nodes);
+            },
+            selectNode: function(selected) {
+                // console.log(selected);
+                console.log("Selected node: " + selected.nodes.toString());
+
+
+
+                // EBALA
+                /*switch (selected.nodes.toString()) {
+                    case '1000':
+                        console.log($scope.data.nodes);
+
+                        break;
+                    case '1001':
+
+                        break;
+                    case '1002':
+
+                        break;
+                    case '1003':
+
+                        break;
+                    case '1004':
+
+                        break;
+                    default:
+
+                }*/
+            }
+        };
+
+        $scope.hideSelection = function() {
+            alert("I will make those edges disappear!!");
+            var selectedNodeId = $scope.selectedNodes;
+
+            if(selectedNodeId.length === 0) {
+                alert("You have not selected a node to disappear");
+            }
+
+            if ($scope.selectedNodes.length > 0) {
+                $scope.selectedNodes.forEach(function(nodeId) {
+                    $scope.data.nodes.update([{id: nodeId.toString(), hidden: true}]);
+                    $scope.hiddenNodes.push(nodeId);
+                });
+            }
+
+            if ($scope.selectedEdges.length > 0) {
+                $scope.selectedEdges.forEach(function(edgeId) {
+                    $scope.data.edges.update([{id: edgeId.toString(), hidden: true}]);
+                    $scope.hiddenEdges.push(edgeId);
+                });
+            }
+        };
+
         $scope.showHiddenNodesAndEdges = function() {
             if($scope.hiddenNodes.length === 0) {
                 alert("There are no disappeared nodes yet");
-                return;
+                return ;
             }
+
             $scope.hiddenEdges.forEach(function(edgeId) {
                 $scope.data.edges.update([{id: edgeId.toString(), hidden: false}]);
             });
@@ -179,25 +215,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
             $scope.hiddenNodes.forEach(function(nodeId) {
                 $scope.data.nodes.update([{id:nodeId.toString(), hidden: false}]);
             });
-            $scope.selectedNode = [];
-        };
-
-        $scope.hideSelection = function() {
-            alert("I will make those edges disappear!!");
-            var selectedNodeId = $scope.selectedNode;
-
-            if(selectedNodeId.toString() === "") {
-                alert("You have not selected a node to disappear");
-            }
-            $scope.data.nodes.update([{id:selectedNodeId.toString(), hidden: true}]);
-            $scope.hiddenNodes.push(selectedNodeId);
-
-            if ($scope.selectedEdges.length > 0) {
-                $scope.selectedEdges.forEach(function(edgeId) {
-                    $scope.data.edges.update([{id: edgeId.toString(), hidden: true}]);
-                    $scope.hiddenEdges.push(edgeId);
-                });
-            }
+            $scope.selectedNodes = [];
         };
 
     }
