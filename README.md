@@ -33,10 +33,10 @@ Contains the vis.js network visualization of large amount of data with a native 
 
 The algorithm to get this app up and running:
 
-* install
-* install node.js and npm
-* clone this repo using git
-* run `npm install` to get the dependencies mentioned in `package.json`. This command is chained with `bower install` so you can add necessary dependencies to `bower.json` beforehand
+* install git;
+* install node.js and npm;
+* clone this repo using git;
+* run `npm install` to get the dependencies mentioned in `package.json`. This command is chained with `bower install` so you can add necessary dependencies to `bower.json` beforehand;
 * run `npm start`. This starts a web server, go to [localhost:8000/index.html][lh] to see the app.
 
 
