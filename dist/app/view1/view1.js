@@ -131,8 +131,8 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
 
     $scope.events = {
         doubleClick: function doubleClick(doubleClicked) {
-            doubleClicked.event = "[original event]";
-            document.getElementById('eventDC').innerHTML = '<h2>doubleClick event:</h2>' + JSON.stringify(doubleClicked, null, 4);
+            // doubleClicked.event = "[original event]";
+            // document.getElementById('eventDC').innerHTML = '<h2>doubleClick event:</h2>' + JSON.stringify(doubleClicked, null, 4);
             $scope.activeNode = doubleClicked.nodes.toString();
         },
 
