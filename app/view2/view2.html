@@ -1,5 +1,36 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<p>This is vis.js plot visualization. Not much interactivity to show here.</p>
+
+<div ng-controller="View2Ctrl">
+    <vis-graph2d data="data" options="options" events="events" height="100%"></vis-graph2d>
+    <div class="md-panel-content">
+        <!--<md-list>-->
+            <!--<md-list-item ng-repeat="item in data.items">-->
+                <!--<div>-->
+                    <!--<md-input-container>-->
+                        <!--<label>Date</label>-->
+                        <!--<input ng-model="data.items">-->
+                        <!--{{item}}-->
+                    <!--</md-input-container>-->
+                <!--</div>-->
+            <!--</md-list-item>-->
+        <!--</md-list>-->
+
+        <!--<table style="width:100%">-->
+            <!--<tr>-->
+                <!--<th>Firstname</th>-->
+                <!--<th>Lastname</th>-->
+                <!--<th>Age</th>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Jill</td>-->
+                <!--<td>Smith</td>-->
+                <!--<td>50</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Eve</td>-->
+                <!--<td>Jackson</td>-->
+                <!--<td>94</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    </div>
+</div>
