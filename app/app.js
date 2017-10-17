@@ -14,11 +14,11 @@ angular.module('myApp', [
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view2'});
+  $routeProvider.otherwise({redirectTo: '/view1'});
 }])
 .controller('AppCtrl', ['$scope', function($scope) {
 
-    $scope.currentNavItem = 'view2';
+    $scope.currentNavItem = 'view1';
     /*
     $scope.goto = function(page) {
       console.log("Goto" + page);

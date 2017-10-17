@@ -152,8 +152,6 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngSanitiz
                 // console.log(selected);
                 console.log("Selected node: " + selected.nodes.toString());
 
-
-
                 // EBALA
                 /*switch (selected.nodes.toString()) {
                     case '1000':
